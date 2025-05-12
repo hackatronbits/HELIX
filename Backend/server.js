@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
-const prescription = require("./routes/prescription"); // Ensure path is correct
+const prescriptionRoutes = require('./routes/prescription');
+const speechToTextRoute = require("./routes/speechToText");
 
 
 const app = express();
@@ -10,7 +11,9 @@ app.use(cors());
 app.use(express.json());
 
 
-app.use("/prescription", prescription);
+app.use("/", prescriptionRoutes);
+// app.use('/api', speechToTextRoute);
+
 
 //checking the server is working or not
 app.get("/", (req, res) => {
